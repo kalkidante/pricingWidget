@@ -1,0 +1,88 @@
+<div>
+  <form>
+    <input id="businessPicture" type="file" />
+    <button type="submit">Update Widget</button>
+  </form>
+  <script>
+    window.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const businessPicture = document.getElementById("businessPicture");
+      const formData = new FormData();
+
+      // formData.append("font", "Lobster");
+
+      // // Updating specific settings
+      // formData.append("settings.button.text", "Update Now");
+      // formData.append("settings.button.color", "#FF0000");
+      // formData.append("settings.primary_color", "#123456");
+      // //   formData.append("settings.language.language", "en");
+
+      // // Example: Updating price details
+      // formData.append("settings.price.price", 20.0);
+      // formData.append("settings.price.currency", "USD");
+
+      // // Example: Updating button properties
+      // formData.append("settings.button.border_radius", 15);
+      // formData.append("settings.button.size", 12);
+
+      // // Updating table settings
+      // const updatedTables = [
+      //   {
+      //     id: 1,
+      //     name: "Updated Table Name",
+      //     caption: "Updated caption",
+      //   },
+      // ];
+
+      // updatedTables.forEach((table, tableIndex) => {
+      //   formData.append(`settings.tables[${tableIndex}]name`, table.name);
+      //   formData.append(`settings.tables[${tableIndex}]caption`, table.caption);
+      // });
+      // formData.append("settings.picture_aspect_ratio", 1.5);
+      formData.append("settings.column_style", "style1");
+      // formData.append("settings.primary_color", "#0E7490");
+      // formData.append("settings.secondary_color", "#F1F5F9");
+      formData.append("settings.font", "Pacifico");
+
+      // formData.append("settings.layout", "classic_table");
+      // formData.append("settings.layout", "carousel");
+      formData.append("settings.layout", "grid");
+      formData.append("settings.features_font_size", 14);
+      formData.append("settings.features_align", "left");
+      formData.append("settings.button.color", "#B91C1C");
+      formData.append("settings.button.mode", "filled");
+
+      formData.append("settings.price_font.font_size", 20);
+      formData.append("settings.old_price_font.font_size", 14);
+
+      formData.append("settings.width.auto", false);
+      formData.append("settings.width.custom_value", 900);
+      // formData.append("settings.title_alignment", "center");
+
+      fetch(
+        "http://127.0.0.1:8000/widgets/v2/pricing/012c067c-9eaa-492a-9e52-14383ce91646/",
+        {
+          method: "PATCH",
+          body: formData,
+          headers: {
+            Authorization:
+              "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NjY1MjA0LCJpYXQiOjE3Mzg4MDEyMDQsImp0aSI6IjA5YjIzY2M3MmFkYzQ5MTFhNDBjMDI5YjkwNDljMzc0IiwidXNlcl9pZCI6Mn0.UONXA8vY9urrpQH08dYAcUrF9voGsjAwRpBikFVvF-Q",
+          },
+        }
+      )
+        .then(async (res) => {
+          if (!res.ok) {
+            const errorDetails = await res.text();
+            throw new Error(`HTTP Error ${res.status}: ${errorDetails}`);
+          }
+          return res.json();
+        })
+        .then((data) => {
+          console.log("Update Successful:", data);
+        })
+        .catch((error) => {
+          console.error(error.message);
+        });
+    });
+  </script>
+</div>

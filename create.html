@@ -1,0 +1,596 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+  </head>
+  <body>
+    <div>
+      <form>
+        <input id="picture1" type="file" />
+        <p>
+          icon
+          <input id="icon" type="file" />
+        </p>
+
+        <button type="submit">Create Widget</button>
+      </form>
+      <script>
+        window.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const picture1 = document.getElementById("picture1");
+          const icon = document.getElementById("icon");
+          const formData = new FormData();
+
+          // ==== GENERAL SETTINGS ====
+          formData.append("name", "Premium Pricing Widget");
+          formData.append("settings.multiple_tables_mode", true);
+          formData.append("settings.layout", "classic_table");
+          formData.append("settings.language.language", "en");
+          formData.append("settings.width.auto", true);
+          formData.append("settings.width.custom_value", 1000);
+          formData.append("settings.show_widget_title", true);
+          formData.append(
+            "settings.widget_title",
+            "Cloud Hosting & Enterprise Packages"
+          );
+          formData.append(
+            "settings.widget_title_caption",
+            "All plans include 24/7 support"
+          );
+          formData.append("settings.primary_color", "#3B82F6");
+          formData.append("settings.secondary_color", "#FFFFFF");
+          formData.append("settings.column_style", "style2");
+          formData.append("settings.show_features", true);
+          formData.append("settings.features_style", "divided");
+          formData.append("settings.features_align", "center");
+          formData.append("settings.features_font_size", 18);
+          formData.append("settings.show_price", true);
+          formData.append("settings.price_align", "center");
+          formData.append("settings.show_button", true);
+
+          // ==== COLOR & ALIGNMENT SETTINGS ====
+          formData.append("settings.widget_title_color", "#1F2937");
+          formData.append("settings.widget_title_caption_color", "#6B7280");
+          formData.append("settings.widget_title_link_color", "#3B82F6");
+          formData.append("settings.widget_title_alignment", "center");
+          formData.append("settings.widget_title_caption_font_size", 16);
+          formData.append("settings.toggle_color", "#3B82F6");
+          formData.append("settings.column_corner_radius", 12);
+          formData.append("settings.carousel_arrow_size", 24);
+          formData.append("settings.head_text_color", "#1F2937");
+          formData.append("settings.head_background_color", "#F3F4F6");
+          formData.append("settings.head_features_font_size", 16);
+          formData.append("settings.show_title", true);
+          formData.append("settings.features_icon_color", "#3B82F6");
+          formData.append("settings.show_picture", true);
+          formData.append("settings.highlight_style_type", "ribbon");
+          formData.append("settings.highlight_background_color", "#3B82F6");
+          formData.append("settings.highlight_text_color", "#FFFFFF");
+          // formData.append("settings.default_table", );
+
+          // Image
+          formData.append("settings.picture_aspect_ratio", 0.5);
+
+          // Price caption
+          formData.append("settings.price_caption_color", "#4B5563");
+          formData.append("settings.price_caption_font.font_size", 16);
+          formData.append("settings.price_caption_font.font_style", "italic");
+          formData.append("settings.price_caption_font.font_weight", "bold");
+
+          // Price Values
+          formData.append("settings.price_color", "#1F2937");
+          formData.append("settings.price_font.font_size", 22);
+          formData.append("settings.price_font.font_weight", "bold");
+          formData.append("settings.price_font.font_style", "normal");
+
+          // Features values
+          formData.append("settings.features_text_color", "#333");
+
+          // Title Values
+
+          formData.append("settings.title_alignment", "center");
+          formData.append("settings.title_text_color", "#222");
+          formData.append("settings.title_caption_color", "#555");
+          formData.append("settings.title_font.font_size", 24);
+          formData.append("settings.title_font.font_weight", "600");
+          formData.append("settings.title_font.font_style", "italic");
+          formData.append("settings.title_caption_font.font_size", 18);
+          formData.append("settings.title_caption_font.font_style", "italic");
+          formData.append("settings.title_caption_font.font_weight", "bold");
+
+          // === Carousel Values
+
+          formData.append("settings.carousel_arrow_background_color", "#000");
+          formData.append("settings.carousel_arrow_color", "#FF5733");
+          formData.append(
+            "settings.carousel_arrow_background_color_on_hover",
+            "#333"
+          );
+          formData.append("settings.carousel_arrow_color_on_hover", "#FFC300");
+
+          // head title font
+          formData.append("settings.head_title_font.font_size", 24);
+          formData.append("settings.head_title_font.font_style", "normal");
+          formData.append("settings.head_title_font.font_weight", "bold");
+          //  discount font
+          formData.append("settings.discount_font.font_size", 24);
+          formData.append("settings.discount_font.font_style", "normal");
+          formData.append("settings.discount_font.font_weight", "bold");
+          // old_price font
+          formData.append("settings.old_price_font.font_size", 24);
+          formData.append("settings.old_price_font.font_style", "normal");
+          formData.append("settings.old_price_font.font_weight", "bold");
+
+          // ==== FONT SETTINGS ====
+          formData.append("settings.font.font_family", "Arial, sans-serif");
+          formData.append("settings.font.font_size", 16);
+          formData.append("settings.font.font_style", "normal");
+          formData.append("settings.font.font_weight", "normal");
+
+          // ==== WIDGET TITLE TEXT STYLE ====
+          formData.append(
+            "settings.widget_title_text_style.font_family",
+            "Arial, sans-serif"
+          );
+          formData.append("settings.widget_title_text_style.font_size", 24);
+          formData.append(
+            "settings.widget_title_text_style.font_style",
+            "normal"
+          );
+          formData.append(
+            "settings.widget_title_text_style.font_weight",
+            "bold"
+          );
+
+          // ==== BUTTON SETTINGS ====
+          formData.append("settings.button.text", "Choose Plan");
+          formData.append("settings.button_alignment", "center");
+          formData.append("settings.button.mode", "filled");
+          formData.append("settings.button.color", "#3B82F6");
+          formData.append("settings.button.label_color", "#FFFFFF");
+          formData.append("settings.button.caption_color", "#6B7280");
+          formData.append("settings.button.border_radius", 10);
+          formData.append("settings.button.horizontal_padding", 20);
+          formData.append("settings.button.vertical_padding", 10);
+          formData.append("settings.button.full_width", true);
+          formData.append(
+            "settings.button.font.font_family",
+            "Arial, sans-serif"
+          );
+          formData.append("settings.button.font.font_size", 16);
+          formData.append("settings.button.font.font_weight", "bold");
+          formData.append("settings.button.size", 14);
+
+          // ==== DISCOUNT SETTINGS ====
+          formData.append("settings.discount.enabled", true);
+          formData.append("settings.discount.custom_label", "15% OFF");
+
+          // ==== TABLE 0: Cloud Hosting Plans (3 columns) ====
+          const table0 = {
+            name: "Cloud Hosting Plans",
+            caption: "Choose your perfect hosting solution",
+            head_title: "Features Comparison",
+            visible: true,
+            head_features: [
+              { text: "Storage", hint: "High speed SSD" },
+              { text: "Bandwidth", hint: "Monthly transfer" },
+              { text: "Domains", hint: "Included domains" },
+              { text: "SSL", hint: "Free certificates" },
+              { text: "Backups", hint: "Daily backups" },
+              { text: "Database", hint: "MySQL included" },
+              { text: "Email", hint: "Accounts included" },
+              { text: "Support", hint: "24/7 availability" },
+            ],
+            columns: [
+              {
+                picture: picture1.files[0],
+                title: "Starter",
+                title_caption: "Ideal for small projects",
+                price_caption: "From $9.99/mo",
+                button_text: "Start Trial",
+                button_caption: "No credit card needed",
+                primary_color: "#3B82F6",
+                highlight_label: "Popular",
+                features: [
+                  { text: "20GB SSD", icon: icon.files[0] },
+                  { text: "2TB Bandwidth", icon: icon.files[0] },
+                  { text: "1 Domain", icon: icon.files[0] },
+                  { text: "Free SSL", icon: icon.files[0] },
+                  { text: "Daily Backups", icon: icon.files[0] },
+                  { text: "1 Database", icon: icon.files[0] },
+                  { text: "5 Email Accounts", icon: icon.files[0] },
+                  { text: "Basic Support", icon: icon.files[0] },
+                ],
+                button_link: {
+                  type: "URL",
+                  value: "/starter",
+                  raw_value: "/starter",
+                  target: "_blank",
+                },
+                price: {
+                  pricing_model: "subscription",
+                  price: 9.99,
+                  currency: "USD",
+                  period: "monthly",
+                  unit: "mo",
+                },
+                old_price: {
+                  enabled: true,
+                  price: 12.99,
+                  custom_price: "12.99",
+                },
+              },
+              {
+                picture: picture1.files[0],
+                title: "Professional",
+                title_caption: "Growing businesses",
+                price_caption: "From $49.99/mo",
+                button_text: "Get Started",
+                button_caption: "30-day guarantee",
+                primary_color: "#10B981",
+                highlight_label: "Best Value",
+                features: [
+                  { text: "100GB SSD", icon: icon.files[0] },
+                  { text: "10TB Bandwidth", icon: icon.files[0] },
+                  { text: "5 Domains", icon: icon.files[0] },
+                  { text: "Wildcard SSL", icon: icon.files[0] },
+                  { text: "Hourly Backups", icon: icon.files[0] },
+                  { text: "10 Databases", icon: icon.files[0] },
+                  { text: "Unlimited Emails", icon: icon.files[0] },
+                  { text: "Priority Support", icon: icon.files[0] },
+                ],
+                button_link: {
+                  type: "URL",
+                  value: "https://example.com/",
+                  raw_value: "https://example.com/",
+                  target: "_self",
+                },
+                price: {
+                  pricing_model: "subscription",
+                  price: 49.99,
+                  currency: "USD",
+                  period: "monthly",
+                  unit: "mo",
+                },
+                old_price: {
+                  enabled: true,
+                  price: 59.99,
+                  custom_price: "59.99",
+                },
+              },
+              {
+                picture: picture1.files[0],
+                title: "Enterprise",
+                title_caption: "Large scale solutions",
+                price_caption: "Custom Pricing",
+                button_text: "Contact Sales",
+                button_caption: "Tailored solutions",
+                primary_color: "#8B5CF6",
+                highlight_label: "Premium",
+                features: [
+                  { text: "1TB SSD", icon: icon.files[0] },
+                  { text: "Unlimited Bandwidth", icon: icon.files[0] },
+                  { text: "50 Domains", icon: icon.files[0] },
+                  { text: "Advanced SSL", icon: icon.files[0] },
+                  { text: "Real-time Backups", icon: icon.files[0] },
+                  { text: "Unlimited DBs", icon: icon.files[0] },
+                  { text: "Enterprise Email", icon: icon.files[0] },
+                  { text: "24/7 Premium Support", icon: icon.files[0] },
+                ],
+                button_link: {
+                  type: "URL",
+                  value: "/enterprise",
+                  raw_value: "/enterprise",
+                  target: "_blank",
+                },
+                price: {
+                  pricing_model: "subscription",
+                  price: 99.0,
+                  currency: "USD",
+                  period: "monthly",
+                  unit: "mo",
+                },
+                old_price: {
+                  enabled: true,
+                  price: 100.0,
+                  custom_price: "Request Quote",
+                },
+              },
+            ],
+          };
+
+          // ==== TABLE 1: Enterprise Plans (4 columns) ====
+          const table1 = {
+            name: "Enterprise Solutions",
+            caption: "Enterprise-grade infrastructure",
+            head_title: "Feature Comparison",
+            visible: true,
+            head_features: [
+              { text: "CPU Cores", hint: "Processing power" },
+              { text: "RAM", hint: "Memory allocation" },
+              { text: "Storage", hint: "SSD storage" },
+              { text: "Bandwidth", hint: "Network capacity" },
+              { text: "SLA", hint: "Uptime guarantee" },
+              { text: "Security", hint: "Certifications" },
+              { text: "Support", hint: "Response time" },
+              { text: "Customization", hint: "Configuration options" },
+            ],
+            columns: [
+              {
+                picture: picture1.files[0],
+                title: "Basic",
+                title_caption: "Entry-level enterprise",
+                price_caption: "From $299/mo",
+                button_text: "Start Now",
+                button_caption: "Monthly billing",
+                primary_color: "#3B82F6",
+                highlight_label: "Starter",
+                features: [
+                  { text: "4 Cores", icon: icon.files[0] },
+                  { text: "16GB RAM", icon: icon.files[0] },
+                  { text: "500GB SSD", icon: icon.files[0] },
+                  { text: "10TB Bandwidth", icon: icon.files[0] },
+                  { text: "99.9% SLA", icon: icon.files[0] },
+                  { text: "ISO 27001", icon: icon.files[0] },
+                  { text: "24/7 Support", icon: icon.files[0] },
+                  { text: "Basic Config", icon: icon.files[0] },
+                ],
+                button_link: {
+                  type: "URL",
+                  value: "https://example.com/",
+                  raw_value: "https://example.com/",
+                  target: "_blank",
+                },
+                price: {
+                  pricing_model: "subscription",
+                  price: 299.0,
+                  currency: "USD",
+                  period: "monthly",
+                  unit: "mo",
+                },
+                old_price: {
+                  enabled: true,
+                  price: 349.0,
+                  custom_price: "349",
+                },
+              },
+              {
+                picture: picture1.files[0],
+                title: "Advanced",
+                title_caption: "Mid-sized enterprises",
+                price_caption: "From $599/mo",
+                button_text: "Get Quote",
+                button_caption: "Volume discounts",
+                primary_color: "#10B981",
+                highlight_label: "Popular",
+                features: [
+                  { text: "8 Cores", icon: icon.files[0] },
+                  { text: "32GB RAM", icon: icon.files[0] },
+                  { text: "1TB SSD", icon: icon.files[0] },
+                  { text: "20TB Bandwidth", icon: icon.files[0] },
+                  { text: "99.95% SLA", icon: icon.files[0] },
+                  { text: "SOC 2", icon: icon.files[0] },
+                  { text: "1hr Response", icon: icon.files[0] },
+                  { text: "Advanced Config", icon: icon.files[0] },
+                ],
+                button_link: {
+                  type: "URL",
+                  value: "https://example.com/",
+                  raw_value: "https://example.com/",
+                  target: "_self",
+                },
+                price: {
+                  pricing_model: "subscription",
+                  price: 599.0,
+                  currency: "USD",
+                  period: "monthly",
+                  unit: "mo",
+                },
+                old_price: {
+                  enabled: true,
+                  price: 699.0,
+                  custom_price: "699",
+                },
+              },
+              {
+                picture: picture1.files[0],
+                title: "Premium",
+                title_caption: "Large enterprises",
+                price_caption: "From $999/mo",
+                button_text: "Contact Sales",
+                button_caption: "Custom solutions",
+                primary_color: "#F59E0B",
+                highlight_label: "Recommended",
+                features: [
+                  { text: "16 Cores", icon: icon.files[0] },
+                  { text: "64GB RAM", icon: icon.files[0] },
+                  { text: "2TB SSD", icon: icon.files[0] },
+                  { text: "50TB Bandwidth", icon: icon.files[0] },
+                  { text: "99.99% SLA", icon: icon.files[0] },
+                  { text: "PCI DSS", icon: icon.files[0] },
+                  { text: "30min Response", icon: icon.files[0] },
+                  { text: "Full Customization", icon: icon.files[0] },
+                ],
+                button_link: {
+                  type: "URL",
+                  value: "https://example.com/",
+                  raw_value: "https://example.com/",
+                  target: "_blank",
+                },
+                price: {
+                  pricing_model: "subscription",
+                  price: 999.0,
+                  currency: "USD",
+                  period: "monthly",
+                  unit: "mo",
+                },
+                old_price: {
+                  enabled: true,
+                  price: 1199.0,
+                  custom_price: "1199",
+                },
+              },
+              {
+                picture: picture1.files[0],
+                title: "Custom",
+                title_caption: "Fully tailored solutions",
+                price_caption: "Contact for pricing",
+                button_text: "Consult Now",
+                button_caption: "Enterprise SLA",
+                primary_color: "#EF4444",
+                highlight_label: "Elite",
+                features: [
+                  { text: "32+ Cores", icon: icon.files[0] },
+                  { text: "128GB+ RAM", icon: icon.files[0] },
+                  { text: "5TB+ SSD", icon: icon.files[0] },
+                  { text: "100TB+ Bandwidth", icon: icon.files[0] },
+                  { text: "99.999% SLA", icon: icon.files[0] },
+                  { text: "FedRAMP", icon: icon.files[0] },
+                  { text: "15min Response", icon: icon.files[0] },
+                  { text: "Dedicated Engineer", icon: icon.files[0] },
+                ],
+                button_link: {
+                  type: "URL",
+                  value: "https://example.com/",
+                  raw_value: "https://example.com/",
+                  target: "_blank",
+                },
+                price: {
+                  pricing_model: "custom",
+                  price: 100.0,
+                  currency: "USD",
+                  period: "monthly",
+                  unit: "mo",
+                },
+                old_price: {
+                  enabled: true,
+                  price: 120.0,
+                  custom_price: "Custom Quote",
+                },
+              },
+            ],
+          };
+
+          // Append tables to formData
+          const tables = [table0, table1];
+          tables.forEach((table, tableIndex) => {
+            formData.append(`settings.tables[${tableIndex}]name`, table.name);
+            formData.append(
+              `settings.tables[${tableIndex}]caption`,
+              table.caption
+            );
+            formData.append(
+              `settings.tables[${tableIndex}]head_title`,
+              table.head_title
+            );
+            formData.append(
+              `settings.tables[${tableIndex}]visible`,
+              table.visible
+            );
+
+            table.head_features.forEach((feature, featureIndex) => {
+              formData.append(
+                `settings.tables[${tableIndex}]head_features[${featureIndex}]text`,
+                feature.text
+              );
+              formData.append(
+                `settings.tables[${tableIndex}]head_features[${featureIndex}]hint`,
+                feature.hint
+              );
+            });
+
+            table.columns.forEach((column, columnIndex) => {
+              const prefix = `settings.tables[${tableIndex}]columns[${columnIndex}]`;
+              formData.append(`${prefix}picture`, column.picture);
+              formData.append(`${prefix}title`, column.title);
+              formData.append(`${prefix}title_caption`, column.title_caption);
+              formData.append(`${prefix}price_caption`, column.price_caption);
+              formData.append(`${prefix}button_text`, column.button_text);
+              formData.append(`${prefix}button_caption`, column.button_caption);
+              formData.append(`${prefix}primary_color`, column.primary_color);
+              formData.append(
+                `${prefix}highlight_label`,
+                column.highlight_label
+              );
+
+              column.features.forEach((feature, featureIndex) => {
+                formData.append(
+                  `${prefix}features[${featureIndex}]text`,
+                  feature.text
+                );
+                formData.append(
+                  `${prefix}features[${featureIndex}]icon`,
+                  feature.icon
+                );
+              });
+
+              formData.append(
+                `${prefix}button_link.type`,
+                column.button_link.type
+              );
+              formData.append(
+                `${prefix}button_link.value`,
+                column.button_link.value
+              );
+              formData.append(
+                `${prefix}button_link.raw_value`,
+                column.button_link.raw_value
+              );
+              formData.append(
+                `${prefix}button_link.target`,
+                column.button_link.target
+              );
+
+              // Append price details
+              formData.append(
+                `${prefix}price.pricing_model`,
+                column.price.pricing_model
+              );
+              formData.append(`${prefix}price.price`, column.price.price);
+              formData.append(`${prefix}price.currency`, column.price.currency);
+              formData.append(`${prefix}price.period`, column.price.period);
+              formData.append(`${prefix}price.unit`, column.price.unit);
+              // Append old price detail
+              formData.append(
+                `${prefix}old_price.enabled`,
+                column.old_price.enabled
+              );
+              formData.append(
+                `${prefix}old_price.price`,
+                column.old_price.price
+              );
+              formData.append(
+                `${prefix}old_price.custom_price`,
+                column.old_price.custom_price
+              );
+            });
+          });
+
+          for (let pair of formData.entries()) {
+            console.log(pair[0] + ": " + pair[1]);
+          }
+
+          fetch("http://127.0.0.1:8000/widgets/v2/pricing/", {
+            method: "POST",
+            body: formData,
+            headers: {
+              Authorization: "JWT ",
+            },
+          })
+            .then(async (res) => {
+              if (!res.ok) {
+                const errorDetails = await res.text();
+                throw new Error(`HTTP Error ${res.status}: ${errorDetails}`);
+              }
+              return res.json();
+            })
+            .then((data) => {
+              console.log(data);
+            })
+            .catch((error) => {
+              console.error(error.message);
+            });
+        });
+      </script>
+    </div>
+  </body>
+</html>
